@@ -1,0 +1,251 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intelli CRM | AI Powered Business Management</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div id="app">
+
+  <!-- HOME -->
+  <section id="homePage" class="page active">
+    <nav class="navbar">
+      <a class="brand" href="#" onclick="showPage('homePage')">
+        <span class="brand-icon">I</span>
+        <span>Intelli<span class="blue">CRM</span></span>
+      </a>
+      <div class="nav-actions">
+        <button class="btn outline" onclick="openAuth('consumer','register')">Become a Consumer</button>
+        <button class="btn primary" onclick="openAuth('seller','register')">Become a Seller</button>
+      </div>
+    </nav>
+
+    <main class="hero">
+      <div class="hero-text">
+        <span class="eyebrow">✦ AI-POWERED CUSTOMER RELATIONSHIP MANAGEMENT</span>
+        <h1>Manage Smarter.<br>Grow Faster.<br><span>Think Intelligent.</span></h1>
+        <p>Meet Intelli CRM — your intelligent business companion. Manage customers, explore business analytics and make smarter decisions with AI-powered insights.</p>
+        <div class="hero-actions">
+          <button class="btn primary large" onclick="openAuth('consumer','register')">Get Started →</button>
+          <button class="btn outline large" onclick="openAuth('consumer','login')">Login to Account</button>
+        </div>
+        <div class="hero-points">
+          <span>✓ Smart CRM</span>
+          <span>✓ AI Insights</span>
+          <span>✓ Live Analytics</span>
+        </div>
+      </div>
+
+      <div class="hero-preview">
+        <div class="preview-card">
+          <div class="preview-head">
+            <div><small>BUSINESS OVERVIEW</small><h3>Analytics Dashboard</h3></div>
+            <span class="status">● Live Preview</span>
+          </div>
+          <div class="preview-stats">
+            <div><small>Total Customers</small><h2>1,248</h2><span class="green">↗ 12.5%</span></div>
+            <div><small>Business Revenue</small><h2>₹84.5K</h2><span class="green">↗ 8.2%</span></div>
+          </div>
+          <div class="preview-graph">
+            <div class="graph-heading">Customer Growth <span>Last 7 months</span></div>
+            <div class="bars">
+              <i style="height:35%"></i><i style="height:50%"></i>
+              <i style="height:43%"></i><i style="height:68%"></i>
+              <i style="height:60%"></i><i style="height:82%"></i>
+              <i style="height:100%"></i>
+            </div>
+            <div class="graph-labels"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span></div>
+          </div>
+          <div class="ai-preview"><span>✦</span><div><b>AI Business Insight</b><small>Your business is showing positive growth!</small></div></div>
+        </div>
+      </div>
+    </main>
+
+    <section class="features">
+      <div class="section-title">
+        <span class="eyebrow">POWERFUL BUSINESS TOOLS</span>
+        <h2>Everything Your Business Needs</h2>
+        <p>One platform to manage relationships, understand performance and grow.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-icon">♙</div><h3>Customer Management</h3><p>Add, update, search and manage your customer records.</p></article>
+        <article class="feature-card"><div class="feature-icon">✦</div><h3>AI Assistant</h3><p>Get intelligent business insights and data-based suggestions.</p></article>
+        <article class="feature-card"><div class="feature-icon">▥</div><h3>Business Analytics</h3><p>Understand customer growth and business trends through graphs.</p></article>
+        <article class="feature-card"><div class="feature-icon">▤</div><h3>Performance Reports</h3><p>Explore organized business reports and performance summaries.</p></article>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="brand"><span class="brand-icon">I</span><span>Intelli<span class="blue">CRM</span></span></div>
+      <p>© 2026 Intelli CRM. Intelligent Relationships, Smarter Business.</p>
+    </footer>
+  </section>
+
+  <!-- AUTH -->
+  <section id="authPage" class="page auth-page">
+    <aside class="auth-side">
+      <div class="brand"><span class="brand-icon">I</span><span>Intelli<span class="blue">CRM</span></span></div>
+      <div>
+        <span class="eyebrow">WELCOME TO INTELLI CRM</span>
+        <h1>Your business.<br>Your customers.<br>Your intelligence.</h1>
+        <p>Manage your business relationships with powerful CRM tools and intelligent analytics.</p>
+        <div class="auth-benefits"><span>✓ Smart customer management</span><span>✓ AI-powered business insights</span><span>✓ Interactive analytics reports</span></div>
+      </div>
+      <small>Intelli CRM · AI Business Solutions</small>
+    </aside>
+
+    <main class="auth-main">
+      <button class="back-btn" onclick="showPage('homePage')">← Back to Home</button>
+      <div class="auth-box">
+        <span class="eyebrow" id="authRole">CONSUMER ACCOUNT</span>
+        <h2 id="authTitle">Welcome Back!</h2>
+        <p id="authSubtitle">Login to access your account.</p>
+        <div class="tabs">
+          <button id="loginTab" class="tab active" onclick="switchAuth('login')">Login</button>
+          <button id="registerTab" class="tab" onclick="switchAuth('register')">Register</button>
+        </div>
+
+        <form id="authForm">
+          <div id="nameField" class="field hidden"><label>Full Name</label><input id="fullName" placeholder="Enter your full name"></div>
+          <div id="emailField" class="field hidden"><label>Email Address</label><input id="email" type="email" placeholder="Enter email address"></div>
+          <div class="field"><label>Unique Username</label><input id="username" required minlength="3" maxlength="20" pattern="[A-Za-z0-9]+" placeholder="Example: Ujjwal123"><small>3–20 letters or numbers only.</small></div>
+          <div class="field"><label>Password</label><input id="password" type="password" required minlength="8" placeholder="Minimum 8 characters"></div>
+          <div id="planField" class="field hidden"><label>Select Seller Plan</label><select id="sellerPlan"><option value="Basic">Basic – ₹499/month</option><option value="Intermediate">Intermediate – ₹999/month</option><option value="Advanced">Advanced – ₹1,999/month</option></select></div>
+          <p id="authError" class="error"></p>
+          <button class="btn primary full" id="authSubmit" type="submit">Login to Account →</button>
+        </form>
+        <p class="auth-bottom" id="authSwitch">New to Intelli CRM? <a onclick="switchAuth('register')">Create an account</a></p>
+      </div>
+    </main>
+  </section>
+
+  <!-- DASHBOARD -->
+  <section id="dashboardPage" class="page dashboard-page">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand sidebar-brand"><span class="brand-icon">I</span><span>Intelli<span class="blue">CRM</span></span></div>
+      <div class="side-label">WORKSPACE</div>
+      <nav id="sidebarMenu"></nav>
+      <div class="sidebar-bottom">
+        <div class="side-user"><div class="avatar" id="sideAvatar">U</div><div><b id="sideName">User</b><small id="sideRole">Consumer</small></div></div>
+        <button class="logout" onclick="logout()">↪ Logout</button>
+      </div>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dash-header">
+        <button class="mobile-menu" onclick="toggleSidebar()">☰</button>
+        <div><small>INTELLI CRM / <span id="breadcrumb">DASHBOARD</span></small><h2 id="pageTitle">Dashboard Overview</h2></div>
+        <div class="header-user"><div class="avatar" id="headerAvatar">U</div><div><b id="headerName">User</b><small id="headerRole">Consumer</small></div></div>
+      </header>
+
+      <div class="dash-content">
+
+        <!-- OVERVIEW -->
+        <section id="overviewSection" class="dash-section">
+          <div class="welcome-banner">
+            <div><span>YOUR INTELLIGENT BUSINESS WORKSPACE</span><h2 id="welcomeName">Welcome Back!</h2><p>Monitor your business, manage customers and explore insights.</p></div>
+            <div class="banner-symbol">✦</div>
+          </div>
+          <div class="stats-grid" id="statsGrid"></div>
+          <div class="two-column">
+            <div class="panel"><div class="panel-heading"><div><h3>Recent Customers</h3><p>Your latest customer records</p></div><button class="text-btn" onclick="navigate('customers')">View All →</button></div><div id="recentCustomers"></div></div>
+            <div class="panel"><div class="panel-heading"><div><h3>AI Business Assistant</h3><p>Your intelligent business companion</p></div><span class="ai-tag">✦ AI</span></div><div class="mini-ai"><div class="ai-orb">✦</div><h3>Need business insights?</h3><p>Ask your AI Assistant about customer growth, performance and business trends.</p><button class="btn primary full" onclick="navigate('assistant')">Open AI Assistant →</button></div></div>
+          </div>
+        </section>
+
+        <!-- CUSTOMERS -->
+        <section id="customersSection" class="dash-section hidden">
+          <div class="section-toolbar"><div><h3>Customer Management</h3><p>Manage your customer database.</p></div><button class="btn primary" onclick="openCustomerForm()">＋ Add Customer</button></div>
+          <div class="panel">
+            <div class="table-toolbar"><input id="customerSearch" placeholder="Search name, email, phone or company..." oninput="renderCustomers()"><span id="customerCount">0 customers</span></div>
+            <div class="table-scroll"><table><thead><tr><th>Customer</th><th>Email</th><th>Phone</th><th>Company</th><th>Actions</th></tr></thead><tbody id="customerTable"></tbody></table></div>
+            <div id="emptyCustomers" class="empty-state hidden"><div>♙</div><h3>No customers found</h3><p>Add your first customer to get started.</p><button class="btn primary" onclick="openCustomerForm()">＋ Add Customer</button></div>
+          </div>
+        </section>
+
+        <!-- ANALYTICS -->
+        <section id="analyticsSection" class="dash-section hidden">
+          <div class="section-toolbar"><div><h3>Business Analytics</h3><p>Understand your customer database through interactive visual reports.</p></div><button class="btn outline" onclick="renderAnalytics()">↻ Refresh Reports</button></div>
+          <div class="stats-grid" id="analyticsStats"></div>
+          <div class="chart-grid">
+            <div class="panel chart-panel"><div class="panel-heading"><div><h3>Customer Growth</h3><p>Monthly customer registrations</p></div><span class="chart-label">Line Chart</span></div><div class="chart-wrap"><canvas id="growthChart"></canvas></div></div>
+            <div class="panel chart-panel"><div class="panel-heading"><div><h3>Customer Distribution</h3><p>Customers by company / category</p></div><span class="chart-label">Doughnut Chart</span></div><div class="chart-wrap"><canvas id="distributionChart"></canvas></div></div>
+            <div class="panel chart-panel"><div class="panel-heading"><div><h3>Company Analysis</h3><p>Customer count by company</p></div><span class="chart-label">Bar Chart</span></div><div class="chart-wrap"><canvas id="companyChart"></canvas></div></div>
+            <div class="panel chart-panel"><div class="panel-heading"><div><h3>Monthly Performance</h3><p>New customer records over time</p></div><span class="chart-label">Area Chart</span></div><div class="chart-wrap"><canvas id="performanceChart"></canvas></div></div>
+          </div>
+          <div class="panel report-panel"><div class="panel-heading"><div><h3>Business Performance Report</h3><p>Automatically generated from your saved customer data.</p></div><button class="btn primary" onclick="downloadReport()">↓ Download Report</button></div><div id="reportContent"></div></div>
+        </section>
+
+        <!-- AI ASSISTANT -->
+        <section id="assistantSection" class="dash-section hidden">
+          <div class="section-toolbar"><div><h3>AI Business Assistant</h3><p>Ask questions and explore insights from your CRM data.</p></div><span class="ai-tag">✦ INTELLIGENT ASSISTANT</span></div>
+          <div class="assistant-layout">
+            <div class="panel chat-panel">
+              <div class="chat-heading"><div class="ai-orb small-orb">✦</div><div><b>Intelli AI Assistant</b><small><span class="online-dot">●</span> Demo assistant active</small></div></div>
+              <div id="chatMessages" class="chat-messages"><div class="message bot"><b>Intelli AI ✦</b><p>Hello! I'm your Intelli CRM Assistant. I can analyze your saved customer records and provide business suggestions. What would you like to know?</p></div></div>
+              <div class="suggestion-chips"><button onclick="askAI('Give me my business overview')">Business Overview</button><button onclick="askAI('Analyze my customer growth')">Customer Growth</button><button onclick="askAI('Give me business improvement suggestions')">Suggestions</button></div>
+              <form id="chatForm" class="chat-input"><input id="chatInput" placeholder="Ask about your business..." autocomplete="off"><button class="btn primary" type="submit">Send ↑</button></form>
+              <small class="demo-note">Frontend demo: insights are generated using CRM data and predefined analytical rules. Live AI connection will be added in the backend stage.</small>
+            </div>
+            <div class="panel insight-panel"><h3>Quick Business Insights</h3><p>Based on your current CRM records.</p><div id="quickInsights"></div><button class="btn outline full" onclick="navigate('analytics')">Explore Full Analytics →</button></div>
+          </div>
+        </section>
+
+        <!-- REPORTS -->
+        <section id="reportsSection" class="dash-section hidden">
+          <div class="section-toolbar"><div><h3>Business Reports</h3><p>Your business performance summary.</p></div><button class="btn primary" onclick="downloadReport()">↓ Export Report</button></div>
+          <div class="panel"><h3>AI-Generated Business Summary</h3><p>Data-driven summary based on your CRM customer records.</p><div id="fullReport" class="full-report"></div></div>
+        </section>
+
+        <!-- SELLER -->
+        <section id="sellerSection" class="dash-section hidden">
+          <div class="welcome-banner"><div><span>SELLER CONTROL CENTER</span><h2>Seller Dashboard</h2><p>Manage registered consumers and subscription plans.</p></div><div class="banner-symbol">✦</div></div>
+          <div class="stats-grid" id="sellerStats"></div>
+          <div class="panel"><div class="panel-heading"><div><h3>Registered Consumers</h3><p>Business accounts registered on this demo.</p></div></div><div class="table-scroll"><table><thead><tr><th>Name</th><th>Username</th><th>Email</th><th>Plan</th><th>Records</th></tr></thead><tbody id="consumerTable"></tbody></table></div></div>
+          <div class="panel"><h3>Subscription Plans</h3><p>Available seller plans.</p><div id="sellerPlans" class="plans-grid"></div></div>
+        </section>
+
+        <!-- PLANS -->
+        <section id="plansSection" class="dash-section hidden"><div class="section-toolbar"><div><h3>Subscription Plans</h3><p>Choose your preferred subscription.</p></div></div><div id="plansContent" class="plans-grid"></div></section>
+
+        <!-- PROFILE -->
+        <section id="profileSection" class="dash-section hidden">
+          <div class="panel profile-panel"><div class="profile-avatar" id="profileAvatar">U</div><h2 id="profileName">User</h2><span class="role-pill" id="profileRole">Consumer</span><div id="profileDetails" class="profile-details"></div></div>
+        </section>
+
+        <!-- SETTINGS -->
+        <section id="settingsSection" class="dash-section hidden">
+          <div class="panel"><h3>Account Settings</h3><p>Manage your account information.</p><div class="setting-item"><div><b>Account Type</b><small>Your registered role</small></div><span id="settingRole"></span></div><div class="setting-item"><div><b>Username</b><small>Your unique username</small></div><span id="settingUsername"></span></div><div class="setting-item"><div><b>Storage</b><small>Current frontend demo storage</small></div><span>Browser LocalStorage</span></div><button class="btn danger" onclick="logout()">Logout</button></div>
+        </section>
+      </div>
+    </main>
+  </section>
+</div>
+
+<!-- CUSTOMER MODAL -->
+<div id="customerModal" class="modal hidden">
+  <div class="modal-card">
+    <div class="modal-heading"><div><h2 id="modalTitle">Add Customer</h2><p>Enter customer information.</p></div><button class="close-btn" onclick="closeCustomerForm()">×</button></div>
+    <form id="customerForm">
+      <input type="hidden" id="editCustomerId">
+      <div class="field"><label>Customer Name *</label><input id="customerName" required placeholder="Full name"></div>
+      <div class="field"><label>Email Address *</label><input id="customerEmail" type="email" required placeholder="Email"></div>
+      <div class="field"><label>Phone Number</label><input id="customerPhone" placeholder="Phone"></div>
+      <div class="field"><label>Company Name</label><input id="customerCompany" placeholder="Company"></div>
+      <div class="field"><label>Address</label><textarea id="customerAddress" rows="3" placeholder="Address"></textarea></div>
+      <div class="modal-actions"><button type="button" class="btn outline" onclick="closeCustomerForm()">Cancel</button><button type="submit" class="btn primary">Save Customer</button></div>
+    </form>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
